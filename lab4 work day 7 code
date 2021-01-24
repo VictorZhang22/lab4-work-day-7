@@ -1,0 +1,29 @@
+def getProduct(n): # this is my helper function for the findLargestProduct function
+    product = 1 # I have a variable that has value 1
+    while n != 0: # this while loop to make sure that the number is not equal to 0
+        product = product * (n % 10) # here I update the value of product
+        n = n // 10 # I square the number to the nearest whole number
+    return product # at the very end of the function I return the product
+
+
+def findLargestProduct():
+    results = [] # this list will contain all of the products of the groups of numbers
+    potentials = [] # this list will contain all of the groups of numbers
+    text = "7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450"
+    
+    for i in range(0, len(text) - 13): # this for loop does through the original text and splices the text in groups of 13
+        potentials.append(text[i: i + 13]) # I borrowed this line from my Lab2 work where I spliced the DNA sequences. I wrote this in a for loop form so it is easier for me to understand
+
+
+    for potential in potentials: # so this is another for loop that goes through the potentials list, which already has all of the groups in it
+        result = getProduct(int(potential)) # here I call my helper function, where I find the product of multiplying every element in a string
+        results.append(result) # I add the products in the results list
+
+    print(max(results)) # since technically I am not required to finish the program, I skipped a few lines of code by using the max() product to find the biggest product of in the results list and print it
+
+  
+
+
+
+
+if __name__ == "__main__":
